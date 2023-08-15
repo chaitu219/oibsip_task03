@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+nav {
+    width: 100%;
+    background-color: #f5ba13;
+    padding: 10px 40px;
+    position: fixed;
+}
+
+.menu{
+    float: left;
+    display: flex;
+}
+
+#menu{
+    border: none;
+    background-color: #f5ba13;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.navi{
+    float: right;
+}
+
+.navi a{
+    padding: 5px;
+    margin: 5px;
+}
+
+.navi .icon {
+    display: none;
+  }
+
+
+.side{
+    margin-top: 53.8px;
+    width: 300px;
+    height: 400px;
+    float: left;
+    position: fixed;
+    padding: 20px;
+    text-align: center;
+}
+
+.side h3{
+    margin: 20px;
+}
+
+.form input{
+    padding: 5px;
+    height: 35px;
+    width: 250px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border: 2px solid rgb(160, 159, 159);
+}
+
+.form input:focus{
+    outline: none;
+}
+
+.form textarea{
+    padding: 5px;
+    height: 200px;
+    width: 250px;
+    border-radius: 3px;
+    border: 2px solid rgb(160, 159, 159);
+    resize: none;
+}
+
+.form textarea:focus{
+    outline: none;
+}
+
+.form button{
+    height: 35px;
+    width: 250px;
+    color: white;
+    font-weight: 600;
+    background: rgb(1, 167, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.form button:hover{
+    background: green;
+}
+
+.main{
+    float: right;
+    margin-left: 310px;
+    margin-top: 53.8px;
+    max-width: 100%;
+    min-height: 92vh;
+    background: whitesmoke;
+    padding: 20px 30px;
+}
+
+.intro{
+    margin-left: 20px;
+}
+
+.flex-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ }
+
+ .flex-box{
+    min-height: 290px;
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    cursor: pointer;
+ }
+
+.head{
+    width: 100%;
+    height: 30px;
+}
+
+.head h3{
+    float: left;
+}
+
+.head button{
+    float: right;
+}
+
+.flex-box .description{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 5px;
+    padding: 3px;
+    overflow-y: auto;
+ }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff; 
+  }
+   
+::-webkit-scrollbar-thumb {
+    background: #bcbcbc; 
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.time{
+    color: rgb(122, 121, 121);
+    font-size: 10px;
+ }
+
+ #edit{
+    background: none;
+    border: none;
+    cursor: pointer;
+ }
+
+ #complete{
+    color: white;
+    background: rgb(1, 156, 1);
+    border: none;
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+ }
+
+ #delete{
+    color: white;
+    background: rgba(193, 6, 6, 0.888);
+    border: none;
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+ }
+ 
+.hide input{
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+}
+
+.hide input:focus{
+    outline: none;
+}
+
+.hide textarea{
+    width: 100%;
+    height: 150px;
+    border: none;
+    resize: none;
+}
+
+.hide textarea:focus{
+    outline: none;
+}
+
+
+
+
+
+
+.disappear{
+    display: none;
+}
+
+.appear{
+    width: 100%;
+    margin-left: 0;
+}
+
+.down{
+    margin-top: 138px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .navi a{display: none;}
+    .navi a.icon {
+      float: right;
+      display: block;
+      color: black;
+      height: 20px;
+      padding: 2px;
+    }
+
+    .navi.responsive {position: relative;}
+    .navi.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .navi.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+
+
+  @media screen and (max-width: 750px){
+    .side{
+        margin-left: 20%;
+        position: static;
+    }
+    .main{
+        margin-left: 0;
+    }
+  } 
+
+
+  @media only screen and (min-width: 500px) and (max-width: 600px) {
+    .flex-box{
+        width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 750px) {
+    .flex-box{
+        width: 45%;
+    }
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 900px) {
+    .flex-box{
+        width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 900px) and (max-width: 1300px) {
+    .flex-box{
+        width: 46%;
+    }
+  }
+
+  @media only screen and (min-width: 1300px) {
+    .flex-box{
+        width: 31%;
+    }
+  }

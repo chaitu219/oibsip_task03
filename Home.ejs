@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Home.css">
+    <title>To Do App</title>
+</head>
+<body>
+    <nav>
+        <div class="menu">
+        <button id="menu"><i class="fa-solid fa-bars fa-xl"></i></button>
+        <h1>To Do App</h1>
+        </div>
+        <div class="navi" id="navi">
+            <a href="/">Home</a>
+            <a href="/pending">Pending</a>
+            <a href="/completed">Completed</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa-solid fa-square-caret-down fa-lg"></i>
+              </a>
+        </div>
+    </nav>
+
+    <div class="side">
+        <h3>Add new Task</h3>
+        <form class="form" action="/" method="post">
+            <input type="text" placeholder="Title" name="title" required>
+            <textarea placeholder="Description" name="description" required></textarea>
+            <button type="submit" name="save" value="add">Add</button>
+        </form>
+    </div>
+
+    <div class="main">
+        <h1 class="intro"><%=intro%></h1>
+        <div class="flex-container">
+
+            <%for(i=(taskData.length-1);i>=0;i--){%>
+            <%if(taskData[i].STATUS == "Pending"){var status = "Mark as Complete";var power = ""}else{var status = "Completed";var power = "disabled"}%>
+            <div class="flex-box">
+                <div class="head">
+                    <div class="Head"><h3><%=taskData[i].TITLE%></h3></div>
+                    <button id="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+                <small class="time">Created on: <%=taskData[i].STARTDATE%> <%=taskData[i].STARTTIME%></small><br>
+                <small class="time">Completed on: <%=taskData[i].ENDDATE%> <%=taskData[i].ENDTIME%></small>
+                <div class="description"><p><%=taskData[i].DESCRIPTION%></p></div>
+                <div class="bottom">
+                    <form action="/" method="post">
+                        <input type="text" value="<%=taskData[i]._id%>" name="id" style="display: none;">
+                        <button id="complete" name="save" value="complete" <%=power%> ><%=status%></button>
+                        <button id="delete" name="save" value="delete">Delete</button>
+                    </form>
+                </div>
+                <form class="hide" action="/" method="post">
+                    <input type="text" name="id" value="<%=taskData[i]._id%>" style="display: none;">
+                    <input type="text" name="title" value="<%=taskData[i].TITLE%>">
+                    <textarea name="description"><%=taskData[i].DESCRIPTION%></textarea>
+                    <button type="submit" name="save" value="update">Update</button>
+                </form>
+
+            </div>
+            <%}%>
+
+        </div>
+    </div>
+
+
+<script>
+    document.querySelectorAll('.hide').forEach((e) => {
+        e.classList.add("disappear");
+    })
+
+    document.querySelectorAll('#edit').forEach((e) => {
+        var count = 0;
+        e.addEventListener("click", () => {
+            if(count == 0){
+                document.querySelectorAll('.Head , .time , .description , .bottom').forEach((e) => {e.classList.add("disappear")});
+                document.querySelectorAll('.hide').forEach((e) => {e.classList.remove("disappear")});
+                count = count + 1;
+            }else{
+                document.querySelectorAll('.Head , .time , .description , .bottom').forEach((e) => {e.classList.remove("disappear")});
+                document.querySelectorAll('.hide').forEach((e) => {e.classList.add("disappear")});
+                count = count - 1;
+            }
+
+        })
+    })
+
+    var eve = document.getElementById('menu');
+    var count = 0;
+    eve.addEventListener("click",function(){
+        if(count==0){
+            document.querySelector(".side").classList.add("disappear");
+            document.querySelector(".main").classList.add("appear");
+            count = count + 1;
+        }
+        else{
+            document.querySelector(".side").classList.remove("disappear");
+            document.querySelector(".main").classList.remove("appear");
+            count = count - 1;
+        }
+    })
+
+
+
+    function myFunction() {
+        var x = document.getElementById("navi");
+        if (x.className === "navi") {
+            x.className += " responsive";
+            document.querySelector(".side").classList.add("down");
+            document.querySelector(".main").classList.add("down");
+        } else {
+            x.className = "navi";
+            document.querySelector(".side").classList.remove("down");
+            document.querySelector(".main").classList.remove("down");
+        }
+    }
+</script>
+<script src="https://kit.fontawesome.com/8522f483a0.js" crossorigin="anonymous"></script>
+</body>
+</html>
